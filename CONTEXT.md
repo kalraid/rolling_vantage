@@ -5,7 +5,7 @@ A web game fusing Vantage Master V2's grid-based summoner tactics with Dice of A
 ## Language
 
 **Master**:
-A Faction's leader unit on the grid — allocates that Faction's Dice Pool each turn (movement, MP charge, Reinforce) and summons/commands its Natials. Not exclusively player-controlled: the player's Faction has a Master, each Contender's Faction has a Master, and a Wild Faction may or may not have one. A Master's HP reaching 0 ends that Faction's run in defeat.
+A Faction's leader unit on the grid — allocates that Faction's Dice Pool each turn (movement, MP charge, Reinforce) and summons/commands its Natials. Not exclusively player-controlled: the player's Faction has a Master, each Contender's Faction has a Master, and a Wild Faction may or may not have one. A Master's HP reaching 0 eliminates that Faction: its held Territory immediately neutralizes (returns to unclaimed, contestable by anyone), and its surviving Natials are not despawned — they persist as a new/merged Wild Faction (leaderless, hostile-by-default obstacles). If the eliminated Faction is the player's own, the Run ends immediately for the player and their rank is scored as of that moment; other Factions' eliminations don't end the Run — it continues until its own end condition is met.
 _Avoid_: Summoner, player character (ambiguous with Natial), NPC Master (use Contender instead)
 
 **Faction**:
