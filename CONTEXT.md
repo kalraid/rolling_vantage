@@ -25,15 +25,15 @@ A spirit/monster unit summoned onto the grid by a Master, consuming MP to mainta
 _Avoid_: Monster, unit, creature, Ethereal (에테리얼 — used once in discussion as a synonym, canonical term stays Natial)
 
 **MP**:
-The resource spent to summon and maintain Natials. Charged each turn via Dice Pool allocation rather than a fixed formula. Each Master has an MP cap stat, and each Natial has its own upkeep coefficient drawn against that cap while summoned.
+The resource spent to summon and maintain Natials, and to activate a Master's special abilities. Charged each turn via Dice Pool allocation rather than a fixed formula. Each Master has an MP cap stat, and each Natial has its own upkeep coefficient drawn against that cap while summoned. Summoning and special abilities only cost MP — they never spend a Dice Pool die directly; only movement, MP charging, and Reinforce/Contest draw from the Dice Pool itself.
 _Avoid_: Mana, magic points (keep MP as the canonical abbreviation)
 
 **Base Stats**:
-The fixed per-Master/per-Natial numbers the rest of the system builds on: HP (reaching 0 = defeat/removal), a movement modifier (added on top of the die value allocated to movement), and MP cap/upkeep coefficient (see MP). There is deliberately no separate attack/defense stat — Contest/Skirmish outcomes come from the die value plus Element matchup only, nothing else.
+The fixed numbers the rest of the system builds on. Shared by both Master and Natial: HP (reaching 0 = defeat/removal). Master-only: a movement modifier (added on top of the die value allocated to movement) and MP cap/upkeep coefficient (see MP) — Masters move on discrete turns via Dice Pool allocation. Natial-only: a Speed stat (tiles per real-time tick), since Natials move continuously under Command rather than via dice — this is what makes some Natials read as fast/agile and others as slow/lumbering. There is deliberately no separate attack/defense stat for either — Contest/Skirmish outcomes come from the die value plus Element matchup only, nothing else.
 _Avoid_: Attributes (ambiguous with Element)
 
 **Dice Pool**:
-The set of N six-sided dice (D6, value 1-6) a Master rolls once at the start of their turn — D6 is the baseline die for both Contest and Skirmish resolution, used unless a specific Master's kit says otherwise (see open decision below). Individual die values are then allocated by the player across movement, MP charging, and combat resolution (Reinforce, or a direct Contest) for that turn — the allocation choice itself is the core strategic decision, not the roll. N has no upper cap — it scales directly and indefinitely with held Territory, which is a deliberate snowball risk to weigh during balancing (see task: Grill 밸런싱/플레이테스트).
+The set of N dice a Master rolls once at the start of their turn — D6 is the baseline for both Contest and Skirmish resolution, used by most of the roster. A minority of Masters have a signature die type instead (e.g. D4 for low-variance consistency, D8 for a higher ceiling) as a character-identity trait — this stays a minority case specifically so it doesn't compound rebalancing cost across the whole roster (see task: Grill 밸런싱/플레이테스트). Individual die values are then allocated by the player across movement, MP charging, and combat resolution (Reinforce, or a direct Contest) for that turn — the allocation choice itself is the core strategic decision, not the roll. N has no upper cap — it scales directly and indefinitely with held Territory, which is a deliberate snowball risk to weigh during balancing.
 _Avoid_: Dice roll (implies per-action rolling, which this project does not use), turn roll
 
 **Territory**:
@@ -41,7 +41,7 @@ The single largest contiguous cluster of grid tiles a Faction holds — if a Fac
 _Avoid_: Mana stone, elemental zone (V2's original term; renamed since the elemental-charge-rate role is now fully replaced by the Dice Pool size role)
 
 **GP**:
-The game's currency, split into a Run-scoped balance and a permanent Meta GP balance. Run GP is earned by holding/expanding Territory and clearing event/treasure tiles (not by movement or Contest wins), and is spent on Natial summons, Dice Pool rerolls, healing, and Requisitions. At Run end, remaining Run GP converts to Meta GP at 100% on success or 25% on failure.
+The game's currency, split into a Run-scoped balance and a permanent Meta GP balance. Run GP is earned by holding/expanding Territory and clearing event/treasure tiles (not by movement or Contest wins), and is spent on Natial summons, Dice Pool rerolls, healing, and Requisitions. A Dice Pool reroll always re-rolls the whole pool (no picking a single die to reroll), and its GP cost escalates with how many times that Master has already rerolled this round — discourages infinite reroll-fishing without banning it outright. At Run end, remaining Run GP converts to Meta GP at 100% on success or 25% on failure.
 _Avoid_: Gold, gems (no other currency exists in this project)
 
 **Meta GP**:
@@ -77,8 +77,12 @@ Each Master/Natial has one of four elements — Earth, Water, Fire, Sky — in t
 _Avoid_: Attribute, affinity (Element is the canonical term)
 
 **Contest**:
-An opposed combat resolution between an attacker's allocated die and a defender's allocated die (or a fixed defense value if the defender chooses not to allocate one). The higher value wins; the margin between the two values tiers the outcome severity: a small margin deals HP damage only, a larger margin adds a special effect (knockback or stun) on top of damage, and a crit-threshold margin allows an instant kill. Skirmish uses this same margin-tiered outcome table. Triggered deliberately by a Master's own move landing on a hostile tile, or by a Master spending an allocated die directly — distinct from a Skirmish.
+An opposed combat resolution between an attacker's allocated die and a defender's die drawn from their Reserve. The higher value wins; the margin between the two values tiers the outcome severity: a small margin deals HP damage only, a larger margin adds a special effect (knockback or stun) on top of damage, and a crit-threshold margin allows an instant kill. Skirmish uses this same margin-tiered outcome table. Triggered deliberately by a Master's own move landing on a hostile tile, or by a Master spending an allocated die directly — distinct from a Skirmish.
 _Avoid_: Roll-off, duel
+
+**Reserve**:
+Whatever dice a Master leaves unallocated at the end of their own turn — not spent on movement, MP charging, or Reinforce. Reserve dice are what a Master defends with in a Contest triggered against them before their next turn; there is no separate roll for defense. Spending every die on offense/utility leaves nothing to defend with, which is the intended tension — Reserve is an opportunity cost, not a free extra resource.
+_Avoid_: Defense pool, saved dice
 
 **Command**:
 A standing order a Master issues to one of their Natials: a destination, an attack target, and a skill-use priority. Natials act on their Command autonomously and continuously in real time; a Command can be reissued at any time, not gated to the Master's own turn.
@@ -89,16 +93,12 @@ The automatic combat resolution that fires when two hostile Natials (or a Natial
 _Avoid_: Contest (reserve Contest for the Master-driven, deliberately-allocated version), auto-battle
 
 **Reinforce**:
-Spending an allocated Dice Pool die on a chosen Natial rather than on the Master's own movement or MP charge — buffs that Natial for its next Skirmish this turn only. This is what the "combat" slot of a Master's Dice Pool allocation now means when the Master isn't the one directly fighting.
+Spending an allocated Dice Pool die on a chosen Natial rather than on the Master's own movement or MP charge — buffs that Natial for its next Skirmish this turn only. This is what the "combat" slot of a Master's Dice Pool allocation now means when the Master isn't the one directly fighting. Range-free: the target Natial can be anywhere on the grid, consistent with Command also being reissuable from anywhere.
 _Avoid_: Buff (too generic outside this specific spend)
 
 ## Open decisions still in play
 
-- Whether summon/special-ability checks also draw from the Dice Pool (currently excluded — those stay deterministic).
-- Whether a defending Master needs their own reserved Dice Pool available on the opponent's turn (i.e., does defense draw from dice already spent this turn, or from a separate reserve?).
 - A Run now hosts the player's Faction + 7 Contenders free-for-all over Territory on one grid, resolved round-by-round with simultaneous (blind-commit) turns rather than strict sequential turn order. When multiple units from different Factions converge on the same tile in the same round (only one unit can occupy/fight there at a time), they resolve in ascending order of travel distance to that tile — the closest unit fights first, the winner then fights the next-closest arrival, and so on (a resolution queue, not a single N-way brawl).
 - How many Wild Factions exist per Run, whether they hold/contest Territory the same as Contenders do, and whether a Wild Faction's Master (if it has one) allocates a Dice Pool the same way a Contender's does.
 - GP payout moves from binary success/failure to a ranking-based model (closer to Dice of Afterimage's original). A Run's end condition (goal-reach, round-limit, last-standing, etc.) and its ranking formula are both defined per map/Chapter rather than a single universal rule — this raises per-map authoring cost (each map needs its own end condition AND its own ranking formula) that Level Design (task: Grill 레벨디자인) needs to account for.
-- Whether Reinforce requires the Master to be within some range/line of the target Natial, or can be spent on any of the Master's Natials anywhere on the grid.
 - Grid size varies per map/scenario like end conditions and ranking formulas do (no fixed universal size). No min/max envelope has been set yet; the first prototype map targets a medium size (~20x20) for testing before any bound is locked in.
-- Whether individual Masters get a signature die type (e.g., a D4 Master for low-variance consistency vs. a D8/D10 Master for high-variance ceiling) as a character-identity mechanic, instead of every Master using the D6 baseline — flagged as a hook for Character Design (task: Grill 캐릭터 디자인) rather than decided here.
