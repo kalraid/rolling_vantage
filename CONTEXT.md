@@ -13,7 +13,7 @@ A group of units sharing allegiance on the grid — a Master (if any), its Natia
 _Avoid_: Team, side, player (a Faction is the domain unit; "player" refers only to the human)
 
 **Contender**:
-One of the 7 CPU-controlled rival Factions competing against the player's Faction for Territory and ranking within a Run.
+One of the 7 CPU-controlled rival Factions competing against the player's Faction for Territory and ranking within a Run. A Contender's Master is drawn from the same roster the player unlocks with Meta GP — including Masters the player hasn't unlocked yet — so growing the roster also grows Contender variety, not just player options. Launch roster target: 12-16 Masters (a Run needs 8 simultaneously, so this keeps repeats within a single Run infrequent without demanding VM V2's full 27).
 _Avoid_: NPC, AI player, enemy master
 
 **Wild Faction**:
@@ -25,8 +25,12 @@ A spirit/monster unit summoned onto the grid by a Master, consuming MP to mainta
 _Avoid_: Monster, unit, creature, Ethereal (에테리얼 — used once in discussion as a synonym, canonical term stays Natial)
 
 **MP**:
-The resource spent to summon and maintain Natials. Charged each turn via Dice Pool allocation rather than a fixed formula.
+The resource spent to summon and maintain Natials. Charged each turn via Dice Pool allocation rather than a fixed formula. Each Master has an MP cap stat, and each Natial has its own upkeep coefficient drawn against that cap while summoned.
 _Avoid_: Mana, magic points (keep MP as the canonical abbreviation)
+
+**Base Stats**:
+The fixed per-Master/per-Natial numbers the rest of the system builds on: HP (reaching 0 = defeat/removal), a movement modifier (added on top of the die value allocated to movement), and MP cap/upkeep coefficient (see MP). There is deliberately no separate attack/defense stat — Contest/Skirmish outcomes come from the die value plus Element matchup only, nothing else.
+_Avoid_: Attributes (ambiguous with Element)
 
 **Dice Pool**:
 The set of N six-sided dice (D6, value 1-6) a Master rolls once at the start of their turn — D6 is the baseline die for both Contest and Skirmish resolution, used unless a specific Master's kit says otherwise (see open decision below). Individual die values are then allocated by the player across movement, MP charging, and combat resolution (Reinforce, or a direct Contest) for that turn — the allocation choice itself is the core strategic decision, not the roll. N has no upper cap — it scales directly and indefinitely with held Territory, which is a deliberate snowball risk to weigh during balancing (see task: Grill 밸런싱/플레이테스트).
@@ -63,6 +67,10 @@ _Avoid_: Stage, level (a Chapter contains multiple Runs, it is not a single batt
 **Run**:
 One roguelike playthrough of a single continuous grid map within a Chapter, ending in either completion or defeat. The grid map doubles as both board (enemies, Territory, events, loot as tiles the Master moves across via Dice Pool movement) and battlefield (Contests happen in place, on the same grid, the instant a Master's move lands on a hostile tile) — there is no separate board screen and battle screen.
 _Avoid_: Stage, attempt, level, dungeon
+
+**Element**:
+Each Master/Natial has one of four elements — Earth, Water, Fire, Sky — in the fixed cycle Earth beats Water beats Fire beats Sky beats Earth (ported from Vantage Master V2). In a Contest/Skirmish, the matchup tier (favorable / even / same-element / unfavorable) modifies the affected side's effective die value before the margin is computed, which shifts which margin tier (see Contest) the result lands in — element advantage doesn't deal separate damage, it pushes the roll toward a better outcome tier. V2's special case is kept: a Master's own attack always counts as favorable, its own defense always counts as even, regardless of the actual elements involved. V2's original flat modifiers (+4/+1/-1/-3.5) were sized for its own damage formula, not a 1-6 die — the modifier values here need to be rebalanced for the D6 scale (see task: Grill 밸런싱/플레이테스트).
+_Avoid_: Attribute, affinity (Element is the canonical term)
 
 **Contest**:
 An opposed combat resolution between an attacker's allocated die and a defender's allocated die (or a fixed defense value if the defender chooses not to allocate one). The higher value wins; the margin between the two values tiers the outcome severity: a small margin deals HP damage only, a larger margin adds a special effect (knockback or stun) on top of damage, and a crit-threshold margin allows an instant kill. Skirmish uses this same margin-tiered outcome table. Triggered deliberately by a Master's own move landing on a hostile tile, or by a Master spending an allocated die directly — distinct from a Skirmish.
