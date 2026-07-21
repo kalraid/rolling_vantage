@@ -64,12 +64,20 @@ _Avoid_: Shop, base (a Command Post is a tile on the same grid, not a separate s
 A one-off, GP-purchased battlefield action bought at a Command Post, consumed on use. Four kinds: mercenary reinforcement (adds a Natial independent of the Master's own MP), remote bombardment (direct damage to a targeted tile), healing/treatment (restores army HP), and reconnaissance (reveals map info — enemy/Territory positions — for an area). Each kind's GP cost escalates with how many times that Master has already used that specific kind this Run (same anti-spam shape as a Dice Pool reroll). Distinct from a Support Skill: a Requisition is a Run-scoped GP spend available to anyone at a Command Post, while a Support Skill is a permanent capability unlocked account-wide with Meta GP (see Meta GP). The two were previously conflated under one name ("Support Purchase") — kept separate now that both exist.
 _Avoid_: Support Purchase (former name, now ambiguous with Support Skill), Support Skill
 
+**Part Pool**:
+The tag-based pool of placeable pieces (Wild Faction encounters, Event Tiles, Terrain) the procedural fill draws from when generating a Run's map (see Run). Each part carries tags (difficulty, Element, biome, etc.); generation filters the pool down to whatever matches the current Chapter/Difficulty Curve context rather than maintaining hand-separated pools per difficulty tier — one shared pool, tag-filtered per map.
+_Avoid_: Content pool, spawn table
+
+**Difficulty Curve**:
+How a Run gets harder as the campaign progresses through Acts/Chapters. Scales via: Contender/Wild Faction base stats rising, Grid size and Faction count growing, the Terrain/Event part pool skewing harder, and — starting partway through the campaign — outright constraint modifiers layered on top of a Run: special (unique-kit) Masters or Natials appearing as Contenders/Wild Faction leaders, Terrain-based debuffs, global debuffs, and MP-specific debuffs. The later category is a distinct escalation tier from simple stat scaling — it changes what a Run *asks of* the player, not just how much bigger the numbers are.
+_Avoid_: Difficulty Mode (see task: Grill 난이도 모드 — that's a player-selected setting, this is baked-in campaign pacing)
+
 **Act**:
 A group of consecutive Chapters. An Act's last Chapter is always a Core Chapter (see Chapter); every other Chapter in the campaign is a Normal Chapter.
 _Avoid_: Arc (use Act as the canonical term)
 
 **Chapter**:
-A fixed, story-ordered unit of the single-player campaign, played in sequence. Two kinds: a **Normal Chapter** has no retry — when its Run fails, the campaign always proceeds directly to the next Chapter, no choice point. A **Core Chapter** is the last Chapter of an Act — when its Run fails, it's a full game failure: the campaign resets to Chapter 1 (roguelike-style), though Meta GP-funded unlocks (roster/Skills/Support Skills) persist across the reset.
+A fixed, story-ordered unit of the single-player campaign, played in sequence. Two kinds: a **Normal Chapter** has no retry — when its Run fails, the campaign always proceeds directly to the next Chapter, no choice point — and is populated purely from the procedural Part Pool, no fixed encounters. A **Core Chapter** is the last Chapter of an Act — when its Run fails, it's a full game failure: the campaign resets to Chapter 1 (roguelike-style), though Meta GP-funded unlocks (roster/Skills/Support Skills) persist across the reset. A Core Chapter also always ends in a hand-designed fixed boss (not drawn from the Part Pool), reinforcing that a Core Chapter is where the real stakes are.
 _Avoid_: Stage, level (a Chapter contains multiple Runs, it is not a single battle)
 
 **Terrain**:
@@ -81,7 +89,7 @@ The Run's map is a hex grid (not square) — every tile has exactly 6 neighbors,
 _Avoid_: Tile grid, board (Grid is the canonical term for the underlying structure; Run's "board doubles as battlefield" language still applies on top of it)
 
 **Run**:
-One roguelike playthrough of a single continuous grid map within a Chapter, ending in either completion or defeat. The grid map doubles as both board (enemies, Territory, events, loot as tiles the Master moves across via Dice Pool movement) and battlefield (Contests happen in place, on the same grid, the instant a Master's move lands on a hostile tile) — there is no separate board screen and battle screen. Each Run is economically self-contained: Run GP and Territory both reset to nothing at the start of the next Run. The only thing carrying from one Run to the next within a Chapter is story progress — clearing a Run advances the Chapter's scenario trigger sequence toward the next one.
+One roguelike playthrough of a single continuous grid map within a Chapter, ending in either completion or defeat, targeting a 10-15 minute playtime — short enough that a failure (no retry, see Chapter) doesn't cost much, and short enough to replay several times in one sitting. The grid map doubles as both board (enemies, Territory, events, loot as tiles the Master moves across via Dice Pool movement) and battlefield (Contests happen in place, on the same grid, the instant a Master's move lands on a hostile tile) — there is no separate board screen and battle screen. Each Run is economically self-contained: Run GP and Territory both reset to nothing at the start of the next Run. The only thing carrying from one Run to the next within a Chapter is story progress — clearing a Run advances the Chapter's scenario trigger sequence toward the next one.
 _Avoid_: Stage, attempt, level, dungeon
 
 **Element**:
