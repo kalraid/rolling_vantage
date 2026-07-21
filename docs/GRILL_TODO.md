@@ -39,7 +39,7 @@ CONTEXT.md의 "Open decisions"에 적혀 있었지만 태스크로 안 옮겨져
 
 Support Skill(메타 해금 영구 스킬)과 이름이 헷갈려서 개명함 — 이전 이름 "Support Purchase".
 
-- [ ] Requisition 구체 목록/비용
+- [x] Requisition 구체 목록/비용 — 용병증원/원격폭격/회복치료/정찰감시 4종, 비용은 종류별 사용횟수 비례 증가
 
 ### 캐릭터 — 스펙
 

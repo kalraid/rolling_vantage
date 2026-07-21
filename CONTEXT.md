@@ -41,7 +41,7 @@ The single largest contiguous cluster of grid tiles a Faction holds — if a Fac
 _Avoid_: Mana stone, elemental zone (V2's original term; renamed since the elemental-charge-rate role is now fully replaced by the Dice Pool size role)
 
 **GP**:
-The game's currency, split into a Run-scoped balance and a permanent Meta GP balance. Run GP is earned by holding/expanding Territory and clearing event/treasure tiles (not by movement or Contest wins), and is spent on Natial summons, Dice Pool rerolls, healing, and Requisitions. A Dice Pool reroll always re-rolls the whole pool (no picking a single die to reroll), and its GP cost escalates with how many times that Master has already rerolled this round — discourages infinite reroll-fishing without banning it outright. At Run end, remaining Run GP converts to Meta GP at 100% on success or 25% on failure.
+The game's currency, split into a Run-scoped balance and a permanent Meta GP balance. Run GP is earned by holding/expanding Territory and clearing event/treasure tiles (not by movement or Contest wins). Spent generally (anywhere, anytime) on Natial summons and Dice Pool rerolls; spent at a Command Post specifically on Requisitions (which include healing — see Requisition). A Dice Pool reroll always re-rolls the whole pool (no picking a single die to reroll), and its GP cost escalates with how many times that Master has already rerolled this round — discourages infinite reroll-fishing without banning it outright. At Run end, remaining Run GP converts to Meta GP at 100% on success or 25% on failure.
 _Avoid_: Gold, gems (no other currency exists in this project)
 
 **Meta GP**:
@@ -57,7 +57,7 @@ A grid tile type where a Master can make Requisitions. Requisitions (mercenary r
 _Avoid_: Shop, base (a Command Post is a tile on the same grid, not a separate screen)
 
 **Requisition**:
-A one-off, GP-purchased battlefield action bought at a Command Post — e.g. mercenary reinforcements, remote bombardment — consumed on use. Distinct from a Support Skill: a Requisition is a Run-scoped GP spend available to anyone at a Command Post, while a Support Skill is a permanent capability unlocked account-wide with Meta GP (see Meta GP). The two were previously conflated under one name ("Support Purchase") — kept separate now that both exist.
+A one-off, GP-purchased battlefield action bought at a Command Post, consumed on use. Four kinds: mercenary reinforcement (adds a Natial independent of the Master's own MP), remote bombardment (direct damage to a targeted tile), healing/treatment (restores army HP), and reconnaissance (reveals map info — enemy/Territory positions — for an area). Each kind's GP cost escalates with how many times that Master has already used that specific kind this Run (same anti-spam shape as a Dice Pool reroll). Distinct from a Support Skill: a Requisition is a Run-scoped GP spend available to anyone at a Command Post, while a Support Skill is a permanent capability unlocked account-wide with Meta GP (see Meta GP). The two were previously conflated under one name ("Support Purchase") — kept separate now that both exist.
 _Avoid_: Support Purchase (former name, now ambiguous with Support Skill), Support Skill
 
 **Act**:
