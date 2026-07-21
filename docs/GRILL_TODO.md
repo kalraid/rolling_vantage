@@ -8,16 +8,13 @@ Tracks the `/grill-with-docs` design interview backlog for Rolling Vantage. Upda
 - [x] 8인 프리포올 동시진행 충돌 규칙 — 거리 기준 리그식 큐, `CONTEXT.md`
 - [x] 그리드 규모 산정 — 맵마다 다름, 첫 프로토타입 ~20x20, `CONTEXT.md`
 - [x] Faction 패배/소멸 처리 규칙 — 영지 중립화 + 네이티얼 Wild화, 플레이어 사망=즉시 Run 종료, `CONTEXT.md`
+- [x] 주사위 사양 (면수/개수/범위) — D6 기본, N은 영지 수=무제한, 마스터별 시그니처 주사위는 캐릭터 디자인으로 이관, `CONTEXT.md`
+- [x] Territory 점거/유지 판정 규칙 — 중립은 즉시 점거, 적대는 Contest/Skirmish, N=최대 클러스터 크기, `CONTEXT.md`
+- [x] Wild Faction 병합 규칙 — 근처 기존 Wild Faction에 흡수, 없으면 신규 생성, `CONTEXT.md`
+- [x] 챕터 재도전/실패 정책 — 일반 챕터=재도전 없이 다음화, 핵심 챕터(Act 마지막)=실패 시 캠페인 전체 리셋, `CONTEXT.md`
+- [x] Contest/Skirmish 결과 세분화 — 마진 3단계(데미지만/데미지+특수효과/즉사), `CONTEXT.md`
 
-## Open
-
-### 핵심 규칙 공백 (우선순위 높음)
-
-- [ ] 주사위 사양 (면수/개수/범위) — Dice Pool 전체가 이 위에서 작동함
-- [ ] Territory 점거/유지 판정 규칙 — Dice Pool 크기(N)의 유일한 결정 요인
-- [ ] Wild Faction 병합 규칙
-- [ ] 챕터 재도전/실패 정책
-- [ ] Contest/Skirmish 결과 세분화 (판정 마진별 결과 종류)
+**핵심 규칙 공백 그룹 전부 완료.**
 
 ### 디자인
 
