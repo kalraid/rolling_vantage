@@ -53,8 +53,12 @@ A grid tile that triggers an effect when a Faction unit reaches it. Types: rewar
 _Avoid_: Encounter (reserve for the Wild Faction subtype specifically)
 
 **Command Post**:
-A grid tile type where a Master can make Support Purchases. Support Purchases (mercenary reinforcements, remote bombardment, and similar effects) are only available while occupying a Command Post — they are not available from a persistent menu.
+A grid tile type where a Master can make Requisitions. Requisitions (mercenary reinforcements, remote bombardment, and similar effects) are only available while occupying a Command Post — they are not available from a persistent menu.
 _Avoid_: Shop, base (a Command Post is a tile on the same grid, not a separate screen)
+
+**Requisition**:
+A one-off, GP-purchased battlefield action bought at a Command Post — e.g. mercenary reinforcements, remote bombardment — consumed on use. Distinct from a Support Skill: a Requisition is a Run-scoped GP spend available to anyone at a Command Post, while a Support Skill is a permanent capability unlocked account-wide with Meta GP (see Meta GP). The two were previously conflated under one name ("Support Purchase") — kept separate now that both exist.
+_Avoid_: Support Purchase (former name, now ambiguous with Support Skill), Support Skill
 
 **Act**:
 A group of consecutive Chapters. An Act's last Chapter is always a Core Chapter (see Chapter); every other Chapter in the campaign is a Normal Chapter.

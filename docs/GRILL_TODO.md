@@ -20,6 +20,27 @@ Items are broken down to atomic (single-decision) granularity by design — each
 
 ## Open
 
+### 다이스 시스템 세부
+
+CONTEXT.md의 "Open decisions"에 적혀 있었지만 태스크로 안 옮겨져 있던 것들 — Dice Pool/Contest 관련 잔여 규칙.
+
+- [ ] 소환/특수능력 판정의 다이스풀 사용 여부
+- [ ] 방어측 다이스 예비/고정방어값 규칙
+- [ ] Reinforce 사거리/범위 제약
+- [ ] 마스터별 시그니처 주사위 종류
+- [ ] 다이스 리롤 규칙 (범위/비용)
+
+### 캠페인 구조 세부
+
+- [ ] 챕터 내 런간 이월 상태 규칙
+- [ ] Run 성공/실패 GP 전환 비율 수치
+
+### Requisition (사령부 지원구매)
+
+Support Skill(메타 해금 영구 스킬)과 이름이 헷갈려서 개명함 — 이전 이름 "Support Purchase".
+
+- [ ] Requisition 구체 목록/비용
+
 ### 캐릭터 — 스펙
 
 - [x] 마스터 로스터 규모 — Contender는 플레이어와 같은 로스터 공유, 출시 목표 12~16명
@@ -70,6 +91,7 @@ Items are broken down to atomic (single-decision) granularity by design — each
 - [ ] Contender 다이스풀 배분 AI 로직
 - [ ] 네이티얼 Command AI 로직
 - [ ] 난이도별 AI 차별화 방식
+- [ ] Wild Faction 개수/영지경쟁 참여 여부
 
 ### UI/HUD — 시스템
 
