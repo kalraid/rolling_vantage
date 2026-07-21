@@ -48,6 +48,10 @@ _Avoid_: Gold, gems (no other currency exists in this project)
 The permanent currency, carried across Runs and Chapters, that funds account-wide unlocks: new Masters/Natials, new Skills, and new Support Skills. Deliberately does not buy raw stat power — see [[docs/adr/0002-meta-progression-unlocks-not-stats]] for why.
 _Avoid_: Gems, premium currency
 
+**Tile Density**:
+The procedural fill (see Run) places Territory, Event Tile, and Command Post tiles at a fixed ratio relative to Grid size (e.g., a set count per 100 tiles) rather than a fixed absolute count — so density feels consistent whether a given map is small or large, and map size (still per-map/Chapter, see Grid) doesn't have to be re-tuned by hand for tile spacing to feel right.
+_Avoid_: Spawn rate (implies unit spawning, not tile placement)
+
 **Event Tile**:
 A grid tile that triggers an effect when a Faction unit reaches it. Types: reward (grants GP/resources), choice (a risk/reward decision prompt), trap (a penalty), Wild Faction encounter, scenario trigger (fires a Chapter's scripted story beat — any Faction, including Contenders, can trigger the mechanical consequence, e.g. a boss awakening; only the player sees the dialogue/text for it), and random teleport. Reward/choice/trap/encounter/teleport types are drawn from the Chapter's procedural part pool (see Run); scenario triggers are hand-placed as part of a map's authored frame, not procedurally generated.
 _Avoid_: Encounter (reserve for the Wild Faction subtype specifically)
@@ -67,6 +71,14 @@ _Avoid_: Arc (use Act as the canonical term)
 **Chapter**:
 A fixed, story-ordered unit of the single-player campaign, played in sequence. Two kinds: a **Normal Chapter** has no retry — when its Run fails, the campaign always proceeds directly to the next Chapter, no choice point. A **Core Chapter** is the last Chapter of an Act — when its Run fails, it's a full game failure: the campaign resets to Chapter 1 (roguelike-style), though Meta GP-funded unlocks (roster/Skills/Support Skills) persist across the reset.
 _Avoid_: Stage, level (a Chapter contains multiple Runs, it is not a single battle)
+
+**Terrain**:
+A per-tile property layered on top of the Grid, independent of tile ownership (Territory/Event Tile/Command Post are about who holds a tile and what's on it; Terrain is what the tile physically is). Terrain affects: movement cost (rough/hilly terrain costs more of the die value spent on movement to cross), Element bonus/penalty (a tile's own element grants/denies a matching-Element unit an edge, tying Terrain into the Contest/Skirmish Element system), line of sight/concealment (some Terrain hides the unit standing on it from being seen at range), and impassable obstacles (a Terrain type that can never be entered, forcing a path around it).
+_Avoid_: Tile type (ambiguous with Event Tile's type field — Terrain and Event Tile are independent layers on the same tile)
+
+**Grid**:
+The Run's map is a hex grid (not square) — every tile has exactly 6 neighbors, so adjacency (Territory clustering, movement paths, Reinforce/Skirmish range checks) never has the square-grid ambiguity of diagonal-vs-orthogonal. Isometric rendering (see ADR-0001) projects this hex grid, it doesn't change its underlying shape.
+_Avoid_: Tile grid, board (Grid is the canonical term for the underlying structure; Run's "board doubles as battlefield" language still applies on top of it)
 
 **Run**:
 One roguelike playthrough of a single continuous grid map within a Chapter, ending in either completion or defeat. The grid map doubles as both board (enemies, Territory, events, loot as tiles the Master moves across via Dice Pool movement) and battlefield (Contests happen in place, on the same grid, the instant a Master's move lands on a hostile tile) — there is no separate board screen and battle screen. Each Run is economically self-contained: Run GP and Territory both reset to nothing at the start of the next Run. The only thing carrying from one Run to the next within a Chapter is story progress — clearing a Run advances the Chapter's scenario trigger sequence toward the next one.
