@@ -41,7 +41,7 @@ The single largest contiguous cluster of grid tiles a Faction holds — if a Fac
 _Avoid_: Mana stone, elemental zone (V2's original term; renamed since the elemental-charge-rate role is now fully replaced by the Dice Pool size role)
 
 **GP**:
-The game's currency, split into a Run-scoped balance and a permanent Meta GP balance. Run GP is earned by holding/expanding Territory and clearing event/treasure tiles (not by movement or Contest wins), and is spent on Natial summons, Dice Pool rerolls, healing, and Support Purchases. At Run end, a portion of remaining Run GP converts to Meta GP — a larger portion on success than on failure.
+The game's currency, split into a Run-scoped balance and a permanent Meta GP balance. Run GP is earned by holding/expanding Territory and clearing event/treasure tiles (not by movement or Contest wins), and is spent on Natial summons, Dice Pool rerolls, healing, and Requisitions. At Run end, remaining Run GP converts to Meta GP at 100% on success or 25% on failure.
 _Avoid_: Gold, gems (no other currency exists in this project)
 
 **Meta GP**:
@@ -69,7 +69,7 @@ A fixed, story-ordered unit of the single-player campaign, played in sequence. T
 _Avoid_: Stage, level (a Chapter contains multiple Runs, it is not a single battle)
 
 **Run**:
-One roguelike playthrough of a single continuous grid map within a Chapter, ending in either completion or defeat. The grid map doubles as both board (enemies, Territory, events, loot as tiles the Master moves across via Dice Pool movement) and battlefield (Contests happen in place, on the same grid, the instant a Master's move lands on a hostile tile) — there is no separate board screen and battle screen.
+One roguelike playthrough of a single continuous grid map within a Chapter, ending in either completion or defeat. The grid map doubles as both board (enemies, Territory, events, loot as tiles the Master moves across via Dice Pool movement) and battlefield (Contests happen in place, on the same grid, the instant a Master's move lands on a hostile tile) — there is no separate board screen and battle screen. Each Run is economically self-contained: Run GP and Territory both reset to nothing at the start of the next Run. The only thing carrying from one Run to the next within a Chapter is story progress — clearing a Run advances the Chapter's scenario trigger sequence toward the next one.
 _Avoid_: Stage, attempt, level, dungeon
 
 **Element**:
@@ -96,8 +96,6 @@ _Avoid_: Buff (too generic outside this specific spend)
 
 - Whether summon/special-ability checks also draw from the Dice Pool (currently excluded — those stay deterministic).
 - Whether a defending Master needs their own reserved Dice Pool available on the opponent's turn (i.e., does defense draw from dice already spent this turn, or from a separate reserve?).
-- Exact split of what carries over between Runs within a Chapter vs. what resets (Territory control resets per Run; Master roster/Skill/Support Skill unlocks persist via Meta GP — Run-to-Run state within a Chapter otherwise still unclear).
-- Exact Run-success vs. Run-failure conversion ratio from Run GP to Meta GP (direction is set, numbers are not).
 - A Run now hosts the player's Faction + 7 Contenders free-for-all over Territory on one grid, resolved round-by-round with simultaneous (blind-commit) turns rather than strict sequential turn order. When multiple units from different Factions converge on the same tile in the same round (only one unit can occupy/fight there at a time), they resolve in ascending order of travel distance to that tile — the closest unit fights first, the winner then fights the next-closest arrival, and so on (a resolution queue, not a single N-way brawl).
 - How many Wild Factions exist per Run, whether they hold/contest Territory the same as Contenders do, and whether a Wild Faction's Master (if it has one) allocates a Dice Pool the same way a Contender's does.
 - GP payout moves from binary success/failure to a ranking-based model (closer to Dice of Afterimage's original). A Run's end condition (goal-reach, round-limit, last-standing, etc.) and its ranking formula are both defined per map/Chapter rather than a single universal rule — this raises per-map authoring cost (each map needs its own end condition AND its own ranking formula) that Level Design (task: Grill 레벨디자인) needs to account for.
